@@ -2,7 +2,10 @@
   <div>
     <ModeButton :modes="['percentage-chart', 'chart', 'current']" :value="mode" @input="setMode" />
     <CardHeader>
-      {{sensor.label}}
+      <div>
+        {{ sensor.label }}
+        <span v-if="sensor.settings">- {{ sensor.station.label }}</span>
+      </div>
     </CardHeader>
     <TimeButtons :value="timeAgo" @input="setTimeAgo" :zoomed-in="zoomedIn" @reset-zoom="zoomedIn = false" />
     <CurrentView v-if="mode === 'current' && measurements.length" :measurements="measurements">

@@ -2,7 +2,10 @@
   <div>
     <ModeButton :value="mode" @input="setMode" />
     <CardHeader>
-      {{ sensor.label }}
+      <div>
+        {{ sensor.label }}
+        <span v-if="sensor.settings">- {{ sensor.station.label }}</span>
+      </div>
     </CardHeader>
     <TimeButtons
       :value="timeAgo"
